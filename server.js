@@ -17,8 +17,10 @@ const aboutContent =
 const contactContent =
   "Ipsam quo, consequuntur aspernatur, rerum debitis ad, minima officiis beatae ullam exercitationem aperiam quibusdam? Accusantium dignissimos quae repellat quo quidem aut voluptate tenetur sapiente, provident impedit totam doloremque saepe ipsum doloribus, ab minima in. Ipsum corporis amet itaque ea non iste beatae, sit vel cum. Illum in suscipit obcaecati, cum iusto consequuntur esse fuga ab architecto quidem aut, cupiditate earum temporibus est ipsam harum. Accusantium, quia! Exercitationem, consectetur voluptatibus dignissimos dolore nemo architecto vel velit. ";
 
+const posts = new Array();
+
 app.get("/", (req, res) => {
-  res.render("home", { homeCont: homeStartingContent });
+  res.render("home", { homeCont: homeStartingContent, postsArray: posts });
 });
 
 app.get("/about", (req, res) => {
@@ -34,9 +36,13 @@ app.get("/compose", (req, res) => {
 });
 
 app.post("/compose", (req, res) => {
-  const mydata = req.body["postTitle"];
-  console.log(mydata);
-  res.redirect("/compose");
+  const post = {
+    title: req.body["postTitle"],
+    content: req.body["postBody"],
+  };
+  console.log(post);
+  posts.push(post);
+  res.redirect("/");
 });
 
 app.listen(port, () => {

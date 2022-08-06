@@ -2,7 +2,19 @@
 
 <section>
   <h2>Home</h2>
-  <%=homeCont %>
+
+  <ul>
+    <%=homeCont %> <% postsArray.forEach((post)=>{ %>
+
+    <li>
+      <h3 class="post-title"><%= post.title %></h3>
+      <div>
+        <p class="post-content"><%= post.content %></p>
+        <a href="">read more</a>
+      </div>
+    </li>
+    <% }) %>
+  </ul>
 </section>
 
 <%- include("partials/footer") -%>
