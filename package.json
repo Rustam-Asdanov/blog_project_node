@@ -1,0 +1,20 @@
+{
+  "name": "blog-page",
+  "version": "1.0.0",
+  "description": "simple blog page",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rustam-Asdanov/blog_project_node.git"
+  },
+  "author": "king",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rustam-Asdanov/blog_project_node/issues"
+  },
+  "homepage": "https://github.com/Rustam-Asdanov/blog_project_node#readme"
+}
