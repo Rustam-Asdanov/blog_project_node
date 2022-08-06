@@ -33,6 +33,12 @@ app.get("/compose", (req, res) => {
   res.render("compose");
 });
 
+app.post("/compose", (req, res) => {
+  const mydata = req.body["postTitle"];
+  console.log(mydata);
+  res.redirect("/compose");
+});
+
 app.listen(port, () => {
   console.log(`Server listen on port ${port}`);
 });
