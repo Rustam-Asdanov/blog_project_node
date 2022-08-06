@@ -8,8 +8,17 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const homeStartingContent =
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore autem placeat eaque, eum officia optio facere assumenda ipsam labore a ullam temporibus voluptatibus odio obcaecati in iure veniam. Esse modi suscipit minima in. Repudiandae dolor obcaecati, sunt natus eaque, libero laboriosam in quis voluptatum, facilis doloribus ab temporibus! Ipsam porro iste labore natus beatae ad enim est facilis nihil quo repellendus, harum provident at voluptas explicabo ullam libero vero, ratione reprehenderit itaque adipisci quasi! Ullam culpa omnis reiciendis perspiciatis laboriosam pariatur quaerat, nemo asperiores voluptatem temporibus, doloribus quisquam.";
+
+const aboutContent =
+  "Perspiciatis illo fuga optio velit porro, suscipit sed provident dolore vel incidunt doloribus accusantium rem, voluptate ab minus sunt vero reiciendis nostrum molestiae consequatur, minima aliquid. Distinctio autem sit reprehenderit laborum beatae ipsa corrupti, praesentium cumque sapiente vitae porro officia animi molestias provident repellat voluptate dolorem consequuntur cupiditate et ea ab! Nam qui quam pariatur, ipsa iure aperiam iusto adipisci nesciunt quaerat. Natus tenetur voluptate nihil vero sed iusto labore molestias aliquam.";
+
+const contactContent =
+  "Ipsam quo, consequuntur aspernatur, rerum debitis ad, minima officiis beatae ullam exercitationem aperiam quibusdam? Accusantium dignissimos quae repellat quo quidem aut voluptate tenetur sapiente, provident impedit totam doloremque saepe ipsum doloribus, ab minima in. Ipsum corporis amet itaque ea non iste beatae, sit vel cum. Illum in suscipit obcaecati, cum iusto consequuntur esse fuga ab architecto quidem aut, cupiditate earum temporibus est ipsam harum. Accusantium, quia! Exercitationem, consectetur voluptatibus dignissimos dolore nemo architecto vel velit. ";
+
 app.get("/", (req, res) => {
-  res.render("home.ejs");
+  res.render("home", { homeCont: homeStartingContent });
 });
 
 app.listen(port, () => {
