@@ -21,6 +21,14 @@ app.get("/", (req, res) => {
   res.render("home", { homeCont: homeStartingContent });
 });
 
+app.get("/about", (req, res) => {
+  res.render("about", { aboutCont: aboutContent });
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact", { contactCont: contactContent });
+});
+
 app.listen(port, () => {
   console.log(`Server listen on port ${port}`);
 });
