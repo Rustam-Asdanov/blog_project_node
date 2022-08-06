@@ -31,9 +31,12 @@
           </nav>
     </header>
     <section>
-      <h2>Compose</h2>
+      <h1>Compose</h1>
       <form action="/compose" method="post">
-        <input type="text" name="postTitle" placeholder="type..." />
+        <label for="title">Title</label>
+        <input type="text" name="postTitle" id="title" placeholder="title (ex: sport)" />
+        <label for="post">Post</label>
+        <textarea name="postContent" id="post" placeholder="post content"></textarea>
         <button type="submit" name="button">Publish</button>
       </form>
     </section>
