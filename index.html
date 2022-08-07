@@ -47,7 +47,6 @@
             <p class="post-content">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe id tenetur minus alias assumenda. Optio consectetur, eum minima nulla iste molestiae debitis facere aspernatur reiciendis quaerat libero neque nostrum. Corporis?
             </p>
-            <a href="">read more</a>
           </div>
           
         </li>
@@ -70,6 +69,15 @@
             <p>Made by King with <span>❤️</span></p>
         </div>
     </footer>
+    <script>
+      document.querySelectorAll(".post-content").forEach(element => {
+        const length = 100;
+        const myString = element.textContent;
+        const myTruncatedString = myString.substring(0,length);
+        
+        element.textContent = myTruncatedString+"...";
+      });
+    </script>
   </body>
   
 </html>

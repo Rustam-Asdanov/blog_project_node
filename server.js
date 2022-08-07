@@ -47,15 +47,16 @@ app.post("/compose", (req, res) => {
 });
 
 app.get("/posts/:postName", (req, res) => {
-  const elemByParam = posts.find(
+  const selectedPost = posts.find(
     (p) => _.lowerCase(p.title) === _.lowerCase(req.params.postName)
   );
 
-  if (elemByParam !== undefined) {
+  if (selectedPost !== undefined) {
+    res.render("post", { post: selectedPost });
     console.log("Match");
+  } else {
+    res.redirect("/");
   }
-
-  res.redirect("/");
 });
 
 app.listen(port, () => {

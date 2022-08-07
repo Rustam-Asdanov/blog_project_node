@@ -175,14 +175,6 @@ section h3.post-title {
   text-shadow: 5px 5px 13px black;
 }
 
-section p.post-content {
-  overflow: hidden;
-  /* white-space: nowrap; */
-  text-overflow: ellipsis;
-  width: 85%;
-  display: inline-block;
-}
-
 /* footer */
 footer img {
   width: 100%;
