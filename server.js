@@ -45,6 +45,16 @@ app.post("/compose", (req, res) => {
   res.redirect("/");
 });
 
+app.get("/posts/:postName", (req, res) => {
+  const elemByParam = posts.find((p) => p.title === req.params.postName);
+
+  if (elemByParam !== undefined) {
+    console.log("Match");
+  }
+
+  res.redirect("/");
+});
+
 app.listen(port, () => {
   console.log(`Server listen on port ${port}`);
 });
