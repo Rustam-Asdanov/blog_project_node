@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const _ = require("lodash");
 const app = express();
 const port = 3000;
 
@@ -46,7 +47,9 @@ app.post("/compose", (req, res) => {
 });
 
 app.get("/posts/:postName", (req, res) => {
-  const elemByParam = posts.find((p) => p.title === req.params.postName);
+  const elemByParam = posts.find(
+    (p) => _.lowerCase(p.title) === _.lowerCase(req.params.postName)
+  );
 
   if (elemByParam !== undefined) {
     console.log("Match");
