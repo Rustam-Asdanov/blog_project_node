@@ -1,0 +1,13 @@
+{
+  "_id": 5,
+  "name": "Pen",
+  "price": 1.3,
+  "stock": 12,
+  "reviws": [
+    {
+      "authorName": "Jack",
+      "rating": 5,
+      "review": "Bomba"
+    }
+  ]
+}

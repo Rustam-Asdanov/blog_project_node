@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
+const myBase = require(__dirname + "/data-base.js");
 const app = express();
 const port = 3000;
 
@@ -20,8 +21,11 @@ const contactContent =
 
 const posts = new Array();
 
-app.get("/", (req, res) => {
-  res.render("home", { homeCont: homeStartingContent, postsArray: posts });
+app.get("/", async (req, res) => {
+  res.render("home", {
+    homeCont: homeStartingContent,
+    postsArray: await myBase.getPostArray(),
+  });
 });
 
 app.get("/about", (req, res) => {
@@ -41,19 +45,22 @@ app.post("/compose", (req, res) => {
     title: req.body["postTitle"],
     content: req.body["postBody"],
   };
-  console.log(post);
-  posts.push(post);
+  // console.log(post);
+  // posts.push(post);
+  myBase.addNewPost(post);
   res.redirect("/");
 });
 
-app.get("/posts/:postName", (req, res) => {
-  const selectedPost = posts.find(
-    (p) => _.lowerCase(p.title) === _.lowerCase(req.params.postName)
-  );
+app.get("/posts/:postID", async (req, res) => {
+  const postId = req.params.postID;
+
+  console.log(postId);
+
+  const selectedPost = await myBase.getPostById(postId);
+  console.log("selectedPost " + selectedPost[0].title);
 
   if (selectedPost !== undefined) {
-    res.render("post", { post: selectedPost });
-    console.log("Match");
+    res.render("post", { message: "Hey", post: selectedPost[0] });
   } else {
     res.redirect("/");
   }
